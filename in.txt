@@ -1,0 +1,2 @@
+declare pokemon teste:
+fim_declare

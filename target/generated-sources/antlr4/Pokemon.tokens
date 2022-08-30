@@ -1,0 +1,8 @@
+T__0=1
+T__1=2
+RESERVED_WORD=3
+IDENT=4
+NUM=5
+TYPE=6
+'('=1
+')'=2
