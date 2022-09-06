@@ -43,7 +43,7 @@ public class MensagemErro implements ANTLRErrorListener {
         // o texto de EOF vem com <>, portanto aqui realiza uma conversão em tal caso
         if(text == "<EOF>")
             text = "EOF";
-        String aType = AlgumaLexer.VOCABULARY.getDisplayName(t.getType()); // Converte o tipo desse token para string
+        String aType = PokemonLexer.VOCABULARY.getDisplayName(t.getType()); // Converte o tipo desse token para string
         if(!got_error){
 
             if(aType == "Nao_Fechado"){ //Caso seja comentario nao fechado

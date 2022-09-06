@@ -5,7 +5,8 @@ import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Token;
+
+import compiladores.t4.PokemonParser.ProgramContext;
 
 /**
  * Gabriel de Jesus Dantas 773412
@@ -21,6 +22,9 @@ public class App
             CommonTokenStream cs = new CommonTokenStream(lex); //conversão para token stream
 
             PokemonParser parser = new PokemonParser(cs);
+            ProgramContext arvore = parser.program();
+            PokemonSemantico as = new PokemonSemantico();
+            as.visitProgram(arvore);
             p.close();
         } catch (Exception e) {
             System.err.println(e);
