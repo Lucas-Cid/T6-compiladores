@@ -40,31 +40,10 @@ public class MensagemErro implements ANTLRErrorListener {
         // Conversão do token stream para token unico
         Token t = (Token) arg1;
         String text = t.getText();
-        // o texto de EOF vem com <>, portanto aqui realiza uma conversão em tal caso
-        if(text == "<EOF>")
-            text = "EOF";
-        String aType = PokemonLexer.VOCABULARY.getDisplayName(t.getType()); // Converte o tipo desse token para string
         if(!got_error){
-
-            if(aType == "Nao_Fechado"){ //Caso seja comentario nao fechado
-                p.println("Linha " + t.getLine() + ": " + "comentario nao fechado");
-                MensagemErro.got_error = true;
-            }
-            else if(aType == "Literal_Nao_Fechada"){ //Caso seja literal "" nao fechado
-                p.println("Linha " + t.getLine() + ": " + "cadeia literal nao fechada");
-                MensagemErro.got_error = true;
-            }
-            else if(aType == "ERR"){ //Em caso de Simbolo nao identificado
-                p.println("Linha " + t.getLine() + ": " + text + " - simbolo nao identificado");
-                MensagemErro.got_error = true;
-            }
-            else{
-                p.println("Linha " + arg2 + ": erro sintatico proximo a " + text);
-                MensagemErro.got_error = true;
-            }
+            p.println("Linha " + arg2 + ": erro sintatico proximo a " + text);
+            MensagemErro.got_error = true;
         }
-
-        
     }
     
 }

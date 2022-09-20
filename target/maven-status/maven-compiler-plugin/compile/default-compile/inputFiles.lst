@@ -1,9 +1,13 @@
 /home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonParser.java
+/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/ElementTypes.java
+/home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonVisitor.java
+/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/SemanticoUtils.java
+/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/PokemonTable.java
+/home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonBaseVisitor.java
+/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/PokemonSemantico.java
 /home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/App.java
 /home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/MensagemErro.java
-/home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonVisitor.java
 /home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonLexer.java
 /home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonBaseListener.java
-/home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonBaseVisitor.java
 /home/lucas/Documentos/Projetos/T6-compiladores/target/generated-sources/antlr4/compiladores/t4/PokemonListener.java
-/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/PokemonSemantico.java
+/home/lucas/Documentos/Projetos/T6-compiladores/src/main/java/compiladores/t4/SkillTable.java

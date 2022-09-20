@@ -20,11 +20,18 @@ public class App
             CharStream c = CharStreams.fromFileName(args[0]);//entrada
             PokemonLexer lex = new PokemonLexer(c);
             CommonTokenStream cs = new CommonTokenStream(lex); //conversão para token stream
-
             PokemonParser parser = new PokemonParser(cs);
+            parser.removeErrorListeners();
+            parser.addErrorListener(new MensagemErro(p));
             ProgramContext arvore = parser.program();
             PokemonSemantico as = new PokemonSemantico();
-            as.visitProgram(arvore);
+            if(!MensagemErro.got_error){
+                as.visitProgram(arvore);
+                for(String err: SemanticoUtils.errosSemanticos){
+                    p.println(err);
+                }
+            }
+            p.println("Fim da compilacao");
             p.close();
         } catch (Exception e) {
             System.err.println(e);

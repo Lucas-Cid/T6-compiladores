@@ -3,17 +3,14 @@ package compiladores.t4;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.antlr.v4.runtime.tree.TerminalNode;
-
 import compiladores.t4.PokemonParser.AttackContext;
-import compiladores.t4.PokemonParser.Declare_nameContext;
 import compiladores.t4.PokemonParser.Declare_pokemonContext;
 import compiladores.t4.PokemonParser.Declare_pokemon_attributeContext;
 import compiladores.t4.PokemonParser.Declare_skillContext;
 import compiladores.t4.PokemonParser.Declare_skill_attributeContext;
 import compiladores.t4.PokemonParser.ProgramContext;
+import compiladores.t4.PokemonTable.Pokemon;
 import compiladores.t4.SkillTable.Skill;
-import compiladores.t4.ElementTypes;
 
 public class PokemonSemantico extends PokemonBaseVisitor<Object> {
 
@@ -32,11 +29,12 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
         Integer hp = null;
         Integer pp = null;
         HashMap<String, Integer> pokemonSkills = new HashMap<>();
+        boolean emptySkillSet = true;
         ElementTypes.types type = null;
 
         for(Declare_pokemon_attributeContext attr : ctx.declare_pokemon_attribute()){
             if(attr.declare_name() != null){
-                name = attr.declare_name().IDENT().getText();                        
+                name = attr.declare_name().IDENT().getText().trim();                        
             }
             else if(attr.declare_hp() != null){
                 hp = Integer.parseInt(attr.declare_hp().NUM().getText());                    
@@ -45,37 +43,54 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
                 pp = Integer.parseInt(attr.declare_pp().NUM().getText());
             }
             else if(attr.declare_skills() != null){
-                // TODO verificar se skill existe e se é do mesmo tipo do pokemon
                 for(int i = 0; i <  attr.declare_skills().IDENT().size(); i++){
-                    pokemonSkills.put(attr.declare_skills().IDENT().get(i).getText(), Integer.parseInt(attr.declare_skills().NUM().get(i).getText()));
+                    emptySkillSet = false;
+                    String skillName = attr.declare_skills().IDENT(i).getText().trim();
+                    SkillTable.Skill skill = skills.getSkill(skillName);
+                    if(skill == null){
+                        SemanticoUtils.adicionarErroSemantico(attr.start, "Skill " + skillName + " not registered");
+                    } else if(type != null && skill.type != type){
+                        SemanticoUtils.adicionarErroSemantico(attr.start, "The pokemon type is incompatible with its skills");
+                    }
+                    else{
+                        type = skill.type;
+                        pokemonSkills.put(skillName, Integer.parseInt(attr.declare_skills().NUM(i).getText()));
+                    } 
                 }                    
             }
             else if(attr.declare_type() != null){
-                type = ElementTypes.getTypeFromString(attr.declare_type().getText());                    
+                ElementTypes.types typeAux = ElementTypes.getTypeFromString(attr.declare_type().TYPE().getText());
+                if(type == null || type == typeAux){
+                    type = typeAux;
+                } else {
+                    SemanticoUtils.adicionarErroSemantico(attr.start, "The pokemon type is incompatible with its skills");
+                }              
             }
         }
-        // if(name == null)
-        //     erro.add("Empty Name on declaration");
-        // if(hp == null)
-        //     erro.add("Empty Health Points on declaration");
-        // if(pp == null)
-        //     erro.add("Empty Power Point on declaration");
-        // if(skills.isEmpty())
-        //     erro.add("Empty Skillset on declaration");
-        // else
-                // for(Map.Entry<String, Integer> entry : pokemonSkills.entrySet()){
-                //     Skill s = skills.getSkill(entry.getKey());
-                //     if(s == null){
-                //         // erro.add("Skill " + entry.getKey() + " was not registered!");
-                //         continue;
-                //     }
-                //     if(s.type != type);
-                //         // erro.add("Skill " + entry.getKey() + " was not registered!");
-                // }
-        // if(type == null)
-        //     erro.add("Empty Type on declaration");
-        
-        pokemons.insert(name, hp, pp, type, pokemonSkills);
+        boolean error = false;
+        if(name == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "Empty Name on declaration");
+            error = true;
+        }
+        if(hp == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "Empty Health Points on declaration");
+            error = true;
+        }
+        if(pp == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "Empty Power Point on declaration");
+            error = true;
+        }
+        if(emptySkillSet){
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "Empty Skillset on declaration");
+            error = true;
+        }
+        if(type == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "Empty Type on declaration");
+            error = true;
+        }
+        if(!error){
+            pokemons.insert(name, hp, pp, type, pokemonSkills);
+        }
         
         return super.visitDeclare_pokemon(ctx);
     }
@@ -89,7 +104,7 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
     
         for(Declare_skill_attributeContext attr : ctx.declare_skill_attribute()){
             if(attr.declare_name() != null){
-                name = attr.declare_name().IDENT().getText();                        
+                name = attr.declare_name().IDENT().getText().trim();                        
             }
             else if(attr.declare_damage() != null){
                 damage = Integer.parseInt(attr.declare_damage().NUM().getText());                    
@@ -98,27 +113,50 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
                 cost = Integer.parseInt(attr.declare_cost().NUM().getText());
             }
             else if(attr.declare_type() != null){
-                type = ElementTypes.getTypeFromString(attr.declare_type().getText());                    
+                type = ElementTypes.getTypeFromString(attr.declare_type().TYPE().getText());                    
             }
         }
-        // if(name == null)
-        //     erro.add("Empty Name on declaration");
-        // if(damage == null)
-        //     erro.add("Empty Damage on declaration");
-        // if(cost == null)
-        //     erro.add("Empty Cost on declaration");
-        // if(type == null)
-        //     erro.add("Empty Type on declaration");
-        
-        skills.insert(name, cost, damage, type);
-        // TODO Auto-generated method stub
+        boolean error = false;
+        if(name == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start,"Empty Name on declaration");
+            error = true;
+        }
+        if(damage == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start,"Empty Damage on declaration");
+            error = true;
+        }
+        if(cost == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start,"Empty Cost on declaration");
+            error = true;
+        }
+        if(type == null){
+            SemanticoUtils.adicionarErroSemantico(ctx.start,"Empty Type on declaration");
+            error = true;
+        }
+        if(!error){
+            skills.insert(name, cost, damage, type);
+        }
+
         return super.visitDeclare_skill(ctx);
     }
     
     @Override
     public Object visitAttack(AttackContext ctx) {
         // TODO Auto-generated method stub
-        ctx.IDENT()
+        String Ofensive = ctx.IDENT().get(0).getText().trim(), Skill = ctx.IDENT().get(1).getText().trim(), Defensive = ctx.IDENT().get(2).getText().trim();
+        Pokemon Of = pokemons.getPokemon(Ofensive);
+        Pokemon Df = pokemons.getPokemon(Defensive);
+        if(Of == null)
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "The attacker does not exist");
+        else{
+            if(Of.skills.get(Skill) == null)
+                SemanticoUtils.adicionarErroSemantico(ctx.start, Ofensive + " does not know how to use this skill");
+        }
+        if(Df == null)
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "The defender does not exist");
+        else if (Of == Df)
+            SemanticoUtils.adicionarErroSemantico(ctx.start, "An pokemon cannot attack itself");
+
         return super.visitAttack(ctx);
     }
 }

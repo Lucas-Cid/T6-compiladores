@@ -33,4 +33,8 @@ public class PokemonTable {
     public Pokemon getPokemon(String name){
         return pokemons.get(name); 
     }
+
+    public HashMap<String, Pokemon> getTable(){
+        return pokemons;
+    }
 }
