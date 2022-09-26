@@ -215,12 +215,16 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         // TODO Auto-generated method stub
 
         out.append("    vector<vector<string>> attck = {");
-        ctx.attack().forEach(atk -> visitAttack(atk));
-        out.append("    }\n");
+        for(int i = 0; i < ctx.attack().size(); i++){
+            out.append((i >= 1 ? "," : ""));
+            visitAttack(ctx.attack().get(i));
+        }
+        out.append("    };\n");
 
         out.append("    for(auto i : attck){\n");
         out.append("        if(!poquemao[i[0]].attack(poquemao[i[2]], i[1]))\n");
-        out.append("            atksInvalidos[{min(i[0],i[2]), max(i[0], i[2])}]++;");
+        out.append("            atksInvalidos[{min(i[0],i[2]), max(i[0], i[2])}]++;\n");
+        out.append("    }\n");
         return null;
     }
 

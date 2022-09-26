@@ -79,28 +79,34 @@ class Pokemon{
 
 
 int main(){
-map<string, Skill> exKill;
-exKill["bola de fogo"] = Skill("bola de fogo", 15, 10, 0, "fire");
-exKill["raio"] = Skill("raio", 40, 35, 0, "eletric");
-map<string, Pokemon> poquemao;
-map<string, Skill> skills;
-vector<pair<string,long long int>> skls;
-skills.clear();
-skls = {{"bola de fogo", 3}};
-for(auto i : skls){
-    Skill aux;
-    aux = exKill[i.first];
-    aux.uses = i.second;
-    skills[i.first] = aux;
-}
-poquemao["pokemon1"] = Pokemon("pokemon1", 100, 50, "fire", skills);
-skills.clear();
-skls = {{"raio", 2}};
-for(auto i : skls){
-    Skill aux;
-    aux = exKill[i.first];
-    aux.uses = i.second;
-    skills[i.first] = aux;
-}
-poquemao["pokemon2"] = Pokemon("pokemon2", 150, 30, "eletric", skills);
+    map<string, Skill> exKill;
+    exKill["raio"] = Skill("raio", 10, 35, 0, "eletric");
+    exKill["bola de fogo"] = Skill("bola de fogo", 15, 10, 0, "fire");
+    map<string, Pokemon> poquemao;
+    map<string, Skill> skills;
+    vector<pair<string,long long int>> skls;
+    skills.clear();
+    skls = {{"bola de fogo", 3}};
+    for(auto i : skls){
+        Skill aux;
+        aux = exKill[i.first];
+        aux.uses = i.second;
+        skills[i.first] = aux;
+    }
+    poquemao["pokemon1"] = Pokemon("pokemon1", 100, 50, "fire", skills);
+    skills.clear();
+    skls = {{"raio", 3}};
+    for(auto i : skls){
+        Skill aux;
+        aux = exKill[i.first];
+        aux.uses = i.second;
+        skills[i.first] = aux;
+    }
+    poquemao["pokemon2"] = Pokemon("pokemon2", 150, 30, "eletric", skills);
+    map<pair<string, string>, int> atksInvalidos;
+    vector<vector<string>> attck = {{"pokemon2 ", "raio ", "pokemon1"},{"pokemon2 ", "raio ", "pokemon1"},{"pokemon2 ", "raio ", "pokemon1"}    };
+    for(auto i : attck){
+        if(!poquemao[i[0]].attack(poquemao[i[2]], i[1]))
+            atksInvalidos[{min(i[0],i[2]), max(i[0], i[2])}]++;
+    }
 }

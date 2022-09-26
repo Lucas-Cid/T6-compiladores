@@ -2,8 +2,8 @@ compiladores/t4/PokemonParser$Declare_hpContext.class
 compiladores/t4/PokemonParser$BattleContext.class
 compiladores/t4/PokemonParser$Declare_skillContext.class
 compiladores/t4/PokemonParser$Declare_ppContext.class
-compiladores/t4/PokemonParser$Declare_damageContext.class
 compiladores/t4/PokemonParser$Declare_skillsContext.class
+compiladores/t4/PokemonParser$Declare_damageContext.class
 compiladores/t4/PokemonParser$Declare_nameContext.class
 compiladores/t4/PokemonParser$Declare_costContext.class
 compiladores/t4/PokemonParser$ProgramContext.class
