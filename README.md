@@ -51,3 +51,12 @@ java -jar alguma-gerador-1.0-SNAPSHOT-jar-with-dependencies.jar \Caminho\Para\En
 ```
 
 Feito este processo, um arquivo de saída será gerado na pasta onde foi executado o comando, com eventuais erros de compilação. Se nenhum erro for encontrado, um arquivo de saída com extensão .cpp será criado contendo o decorrer da batalha.
+
+Para executar o código gerado, é necessário compilar o programa com o comando 
+```bash
+g++ nome-do-programa.cpp -o arquivo-de-saida.o 
+```
+E executar o programa gerado. Ex:
+```bash
+./arquivo-de-saida.o 
+```
