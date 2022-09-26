@@ -19,6 +19,12 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
     @Override
     public Void visitProgram(ProgramContext ctx) {
         // TODO Auto-generated method stub
+        // Inicialmente, declara todas as classes e funções necessárias para o funcionamento do programa
+        // Isto inclui uma classe para os pokemons e uma classe para as skills
+
+        // A classe pokemon tem uma função útil chamada "attack", que recebe como parâmetro uma skill
+        // e um pokemon alvo e faz toda a verificação necessária para saber se o pokemon pode usar a skill
+        // e se o pokemon alvo pode ser atacado
         out.append("#include<bits/stdc++.h>\n");
         out.append("#include<stdio.h>\n");
         out.append("#define turnos vector<vector<string>>\n");
@@ -127,6 +133,9 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
 
     @Override
     public Void visitDeclare_skill(Declare_skillContext ctx) {
+        // Pega os atriibutos necessários para declarar uma skill 
+        // e imprime no arquivo de saída as declarações necessárias
+        // para a criação utilizando a classe em cpp
         String name = null;
         Long damage = null;
         Long cost = null;
@@ -146,12 +155,17 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
                 type = attr.declare_type().TYPE().getText();                    
             }
         }
+
+        // A main cria uma lista de skills 'exKill' e, a partir dela, mantém controle sobre as skills registradas
         out.append("    exKill[\"" + name + "\"] = Skill(\"" + name + "\", " + cost + ", " + damage + ", 0, \""+ type + "\");\n");
         return null;
     }
 
     @Override
     public Void visitDeclare_pokemon(Declare_pokemonContext ctx) {
+        // Pega os atriibutos necessários para declarar um pokemon
+        // e imprime no arquivo de saída as declarações necessárias
+        // para a criação utilizando a classe em cpp
         out.append("    skills.clear();\n");
         String name = null;
         Long hp = null;
@@ -176,7 +190,8 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         }
         
 
-        // para cada skill
+        // Para cada skill do pokemon, pega a skill da lista de skills global e adiciona na lista de 
+        // skills do pokemon
         out.append("    for(auto i : skls){\n");
         out.append("        Skill aux;\n");    
         out.append("        aux = exKill[i.first];\n");
@@ -184,6 +199,7 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         out.append("        skills[i.first] = aux;\n");
         out.append("    }\n");
 
+        // A main cria uma lista de pokemons 'poquemao' e, a partir dela, mantém controle sobre os pokemons registrados
         out.append("    poquemao[\"" + name + "\"] = Pokemon(\""+ name + "\", " + hp + ", " + pp + ", \"" + type + "\", " + "skills);\n");
 
         return null;
@@ -193,6 +209,9 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
     public Void visitDeclare_skills(Declare_skillsContext ctx) {
         // TODO Auto-generated method stub
 
+        // Pega os atriibutos necessários para declarar as skills de um pokemon
+        // A skill em si já está cadastrada na lista global. Portanto, basta pegarmos o nome
+        // e a quantidade de usos e adicionarmos na lista de skills do pokemon
         out.append("    skls = {");
         for(int i = 0; i < ctx.IDENT().size(); i++){
             out.append((i >= 1 ? "," : "") + "{\"" + ctx.IDENT().get(i).getText() + "\", " + ctx.NUM().get(i).getText() + "}");
@@ -205,7 +224,9 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
     @Override
     public Void visitAttack(AttackContext ctx) {
         // TODO Auto-generated method stub
-
+        // Pega os atributos necessários para declarar um ataque
+        // Para o código ficar menos poluído, guardamos um array de strings com o nome
+        // do atacante, do ataque e do atacado. Depois criamos um for para todos os ataques registrados
         out.append("{\"" + ctx.IDENT().get(0).getText().trim() + "\", \"" + ctx.IDENT().get(1).getText().trim() + "\", \"" + ctx.IDENT().get(2).getText().trim() + "\"}");
 
         return null;
@@ -216,12 +237,16 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         // TODO Auto-generated method stub
 
         out.append("    vector<vector<string>> attck = {");
+
+        // Iteramos dentro todos os ataques registrados, chamamos visitAttack para 
+        // guardá-los no array attck
         for(int i = 0; i < ctx.attack().size(); i++){
             out.append((i >= 1 ? "," : ""));
             visitAttack(ctx.attack().get(i));
         }
         out.append("    };\n");
 
+        // Iteramos dentre todos os ataques salvos em attk e chamamos a função de batalha
         out.append("    for(auto i : attck){\n");
         out.append("        if(!poquemao[i[0]].attack(poquemao[i[2]], i[1]))\n");
         out.append("            atksInvalidos[{min(i[0],i[2]), max(i[0], i[2])}]++;\n");
