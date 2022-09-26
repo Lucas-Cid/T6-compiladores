@@ -5,11 +5,11 @@ import java.util.HashMap;
 public class SkillTable {
 
     public class Skill{
-        Integer cost;
-        Integer damage;
+        Long cost;
+        Long damage;
         ElementTypes.types type;
 
-        public Skill(Integer cost, Integer damage, ElementTypes.types type){
+        public Skill(Long cost, Long damage, ElementTypes.types type){
             this.cost = cost;
             this.damage = damage;
             this.type = type;
@@ -21,7 +21,7 @@ public class SkillTable {
         skills = new HashMap<>();
     }
 
-    public void insert(String name, Integer cost, Integer damage, ElementTypes.types type){
+    public void insert(String name, Long cost, Long damage, ElementTypes.types type){
         if(!skills.containsKey(name))
             skills.put(name, new Skill(cost, damage, type));
     }

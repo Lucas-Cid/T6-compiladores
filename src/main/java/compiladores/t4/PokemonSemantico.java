@@ -26,8 +26,8 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
     @Override
     public Object visitDeclare_pokemon(Declare_pokemonContext ctx) {
         String name = null;
-        Integer hp = null;
-        Integer pp = null;
+        Long hp = null;
+        Long pp = null;
         HashMap<String, Integer> pokemonSkills = new HashMap<>();
         boolean emptySkillSet = true;
         ElementTypes.types type = null;
@@ -37,10 +37,10 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
                 name = attr.declare_name().IDENT().getText().trim();                        
             }
             else if(attr.declare_hp() != null){
-                hp = Integer.parseInt(attr.declare_hp().NUM().getText());                    
+                hp = Long.parseLong(attr.declare_hp().NUM().getText());                    
             }
             else if(attr.declare_pp() != null){
-                pp = Integer.parseInt(attr.declare_pp().NUM().getText());
+                pp = Long.parseLong(attr.declare_pp().NUM().getText());
             }
             else if(attr.declare_skills() != null){
                 for(int i = 0; i <  attr.declare_skills().IDENT().size(); i++){
@@ -98,8 +98,8 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
     @Override
     public Object visitDeclare_skill(Declare_skillContext ctx) {
         String name = null;
-        Integer damage = null;
-        Integer cost = null;
+        Long damage = null;
+        Long cost = null;
         ElementTypes.types type = null;
     
         for(Declare_skill_attributeContext attr : ctx.declare_skill_attribute()){
@@ -107,10 +107,10 @@ public class PokemonSemantico extends PokemonBaseVisitor<Object> {
                 name = attr.declare_name().IDENT().getText().trim();                        
             }
             else if(attr.declare_damage() != null){
-                damage = Integer.parseInt(attr.declare_damage().NUM().getText());                    
+                damage = Long.parseLong(attr.declare_damage().NUM().getText());                    
             }
             else if(attr.declare_cost() != null){
-                cost = Integer.parseInt(attr.declare_cost().NUM().getText());
+                cost = Long.parseLong(attr.declare_cost().NUM().getText());
             }
             else if(attr.declare_type() != null){
                 type = ElementTypes.getTypeFromString(attr.declare_type().TYPE().getText());                    

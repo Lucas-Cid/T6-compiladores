@@ -30,6 +30,14 @@ public class App
                 for(String err: SemanticoUtils.errosSemanticos){
                     p.println(err);
                 }
+                //Agora Gerar C (++)
+                if(SemanticoUtils.errosSemanticos.isEmpty()){
+                    PokemonGeradorC agc = new PokemonGeradorC();
+                    agc.visitProgram(arvore);
+                    try(PrintWriter pw = new PrintWriter(new File(args[1].split("\\.")[0]+".cpp"))) {
+                        pw.print(agc.out.toString());
+                    }
+                }
             }
             p.println("Fim da compilacao");
             p.close();

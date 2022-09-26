@@ -1,0 +1,39 @@
+declare skill:
+    name: raio
+    cost: 10
+    damage: 35
+    type: eletric
+fim_declare
+
+declare skill:
+    name: bola de fogo
+    cost: 15
+    damage: 50
+    type: fire
+fim_declare
+
+declare pokemon:
+    name: pokemon1
+    HP: 100
+    PP: 50 
+    type: fire
+    skills: bola de fogo[3]
+fim_declare
+
+declare pokemon:
+    name: pokemon2
+    HP: 150
+    PP: 30 
+    type: eletric
+    skills: raio[2]
+fim_declare
+
+begin_batalha:
+    pokemon2 USES raio ON pokemon1
+    pokemon1 USES bola de fogo ON pokemon2
+    pokemon2 USES raio ON pokemon1
+    pokemon1 USES bola de fogo ON pokemon2
+    pokemon2 USES raio ON pokemon1
+    pokemon1 USES bola de fogo ON pokemon2
+    pokemon2 USES raio ON pokemon1
+end_batalha

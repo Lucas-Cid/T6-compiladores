@@ -7,12 +7,12 @@ import compiladores.t4.ElementTypes.types;
 public class PokemonTable {
 
     public class Pokemon{
-        Integer hp;
-        Integer pp;
+        Long hp;
+        Long pp;
         ElementTypes.types type;
         HashMap<String, Integer> skills;
 
-        public Pokemon(Integer hp, Integer pp, types type, HashMap<String, Integer> skills) {
+        public Pokemon(Long hp, Long pp, types type, HashMap<String, Integer> skills) {
             this.hp = hp;
             this.pp = pp;
             this.type = type;
@@ -25,7 +25,7 @@ public class PokemonTable {
         pokemons = new HashMap<>();
     }
 
-    public void insert(String name, Integer hp, Integer pp, types type, HashMap<String, Integer> skills){
+    public void insert(String name, Long hp, Long pp, types type, HashMap<String, Integer> skills){
         if(!pokemons.containsKey(name))
             pokemons.put(name, new Pokemon(hp, pp, type, skills));
     }

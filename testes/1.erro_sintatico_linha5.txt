@@ -1,0 +1,14 @@
+declare skill:
+    name: raio
+    damage: 35
+    cost: 40
+    type: eletrico
+fim_declare
+
+declare pokemon:
+    name: pokemon1
+    HP: 150
+    PP: 30 
+    type: eletric
+    skills: raio[2]
+fim_declare
