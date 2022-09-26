@@ -30,5 +30,5 @@ fim_declare
 
 begin_batalha:
     pokemon2 USES raio ON pokemon1
-    pokemon1 USES bola de fogo ON pokemon2
+    pokemon3 USES bola de fogo ON pokemon2
 end_batalha
