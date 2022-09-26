@@ -19,6 +19,8 @@ O tema escolhido foi um simulador de batalha entre pokemons. A nossa linguagem p
 
 O tema escolhido se adequa bem ao trabalho, uma vez que podem ser realizadas uma série de verificações sintáticas (como por exemplo, garantir que os tipos estejam contidos em uma lista de tipos declarada na própria gramática), semânticas (como por exemplo, garantir que um pokemon só possa ter skills de acordo com seu tipo) e uma geração de código seja feita (no caso, uma simulação de batalha é realizada gerando código em C++)
 
+Para ver o vídeo de introdução da linguagem <a href = "https://www.youtube.com/watch?v=O91DT1pR1ew">clique aqui</a> mas caso não funcione <a href="https://youtu.be/nMya_Ft5F2I">clique aqui</a> 
+
 ## Gramática
 
 A gramática da linguagem pode ser encontrada [neste arquivo](https://github.com/Lucas-Cid/T6-compiladores/blob/master/src/main/antlr4/compiladores/t4/Pokemon.g4). Uma explicação de como a gramática funciona pode ser encontrada no próprio arquivo, mas, basicamente, apresenta três componentes principais
