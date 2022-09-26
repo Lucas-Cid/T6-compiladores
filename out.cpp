@@ -50,11 +50,11 @@ class Pokemon{
     bool attack(Pokemon &a, string skillName){
         bool dead = a.hp > this->hp;
         if(a.hp <= 0 || this->hp <= 0){
-            cout << "Impossivel atacar " + (dead ? this->name : a.name) + " está morto!\n"; 
+            cout << "Impossivel atacar " + (dead ? this->name : a.name) + " está morto!" << endl << endl; 
             return false;
         }
         if(skills[skillName].uses == 0){
-            cout << skillName + " ja foi utilizada o maximo possivel\n";
+            cout << skillName + " ja foi utilizada o maximo possivel pelo pokemon " + this->name  << endl << endl;
             return false;
         }
         
@@ -67,11 +67,12 @@ class Pokemon{
             pp += skills[skillName].cost;
             return false;
         }
-        cout << "Ataque de " + this->name + " feito com sucesso!\n";
+        cout << this->name + " usou " + skillName + " em " + a.name + " com sucesso " << endl;
         a.hp -= skills[skillName].dmg;
-        cout << "Vidas Atuais:\n" + this->name + ": "<< this->hp << " ------------VS------------ " + a.name + ": " << a.hp;
+        cout << "Vidas Atuais:\n" + this->name + ": "<< this->hp << " ------------VS------------ " + a.name + ": " << a.hp << endl;
         if(a.hp <= 0)
             cout << ">>>>>>>>>>>> " + this->name + " DECLARADO VENCEDOR DA BATALHA CONTRA " + a.name + " <<<<<<<<<<<<"<< endl;
+        cout << endl;
         return true;
     }
 
@@ -81,7 +82,7 @@ class Pokemon{
 int main(){
     map<string, Skill> exKill;
     exKill["raio"] = Skill("raio", 10, 35, 0, "eletric");
-    exKill["bola de fogo"] = Skill("bola de fogo", 15, 10, 0, "fire");
+    exKill["bola de fogo"] = Skill("bola de fogo", 15, 50, 0, "fire");
     map<string, Pokemon> poquemao;
     map<string, Skill> skills;
     vector<pair<string,long long int>> skls;
@@ -95,7 +96,7 @@ int main(){
     }
     poquemao["pokemon1"] = Pokemon("pokemon1", 100, 50, "fire", skills);
     skills.clear();
-    skls = {{"raio", 3}};
+    skls = {{"raio", 2}};
     for(auto i : skls){
         Skill aux;
         aux = exKill[i.first];
@@ -104,7 +105,7 @@ int main(){
     }
     poquemao["pokemon2"] = Pokemon("pokemon2", 150, 30, "eletric", skills);
     map<pair<string, string>, int> atksInvalidos;
-    vector<vector<string>> attck = {{"pokemon2 ", "raio ", "pokemon1"},{"pokemon2 ", "raio ", "pokemon1"},{"pokemon2 ", "raio ", "pokemon1"}    };
+    vector<vector<string>> attck = {{"pokemon2", "raio", "pokemon1"},{"pokemon1", "bola de fogo", "pokemon2"},{"pokemon2", "raio", "pokemon1"},{"pokemon1", "bola de fogo", "pokemon2"},{"pokemon2", "raio", "pokemon1"},{"pokemon1", "bola de fogo", "pokemon2"},{"pokemon2", "raio", "pokemon1"}    };
     for(auto i : attck){
         if(!poquemao[i[0]].attack(poquemao[i[2]], i[1]))
             atksInvalidos[{min(i[0],i[2]), max(i[0], i[2])}]++;

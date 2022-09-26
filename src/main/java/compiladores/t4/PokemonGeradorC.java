@@ -71,11 +71,11 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         out.append("    bool attack(Pokemon &a, string skillName){\n");
         out.append("        bool dead = a.hp > this->hp;\n");
         out.append("        if(a.hp <= 0 || this->hp <= 0){\n");
-        out.append("            cout << \"Impossivel atacar \" + (dead ? this->name : a.name) + \" está morto!\\n\"; \n");
+        out.append("            cout << \"Impossivel atacar \" + (dead ? this->name : a.name) + \" está morto!\" << endl << endl; \n");
         out.append("            return false;\n");
         out.append("        }\n");
         out.append("        if(skills[skillName].uses == 0){\n");
-        out.append("            cout << skillName + \" ja foi utilizada o maximo possivel\\n\";\n");
+        out.append("            cout << skillName + \" ja foi utilizada o maximo possivel pelo pokemon \" + this->name  << endl << endl;\n");
         out.append("            return false;\n");
         out.append("        }\n");
         out.append("        \n");
@@ -84,15 +84,16 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         out.append("        pp -= skills[skillName].cost;\n");
         out.append("\n");
         out.append("        if(pp < 0){\n");
-        out.append("            cout << \"Impossivel utilizar \" + skillName + \" faltam \" << pp * -1 << \" Power Points\"<< endl;\n");
+        out.append("            cout << \"Impossivel utilizar \" + skillName + \" faltam \" << pp * -1 << \" Power Points\"<< endl << endl;\n");
         out.append("            pp += skills[skillName].cost;\n");
         out.append("            return false;\n");
         out.append("        }\n");
-        out.append("        cout << \"Ataque de \" + this->name + \" feito com sucesso!\\n\";\n");
+        out.append("        cout << this->name + \" usou \" + skillName + \" em \" + a.name + \" com sucesso \" << endl;\n");
         out.append("        a.hp -= skills[skillName].dmg;\n");
-        out.append("        cout << \"Vidas Atuais:\\n\" + this->name + \": \"<< this->hp << \" ------------VS------------ \" + a.name + \": \" << a.hp;\n");
+        out.append("        cout << \"Vidas Atuais:\\n\" + this->name + \": \"<< this->hp << \" ------------VS------------ \" + a.name + \": \" << a.hp << endl;\n");
         out.append("        if(a.hp <= 0)\n");
         out.append("            cout << \">>>>>>>>>>>> \" + this->name + \" DECLARADO VENCEDOR DA BATALHA CONTRA \" + a.name + \" <<<<<<<<<<<<\"<< endl;\n");
+        out.append("        cout << endl;\n");
         out.append("        return true;\n");
         out.append("    }\n");
         out.append("\n");
@@ -205,7 +206,7 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
     public Void visitAttack(AttackContext ctx) {
         // TODO Auto-generated method stub
 
-        out.append("{\"" + ctx.IDENT().get(0).getText() + "\", \"" + ctx.IDENT().get(1).getText() + "\", \"" + ctx.IDENT().get(2).getText() + "\"}");
+        out.append("{\"" + ctx.IDENT().get(0).getText().trim() + "\", \"" + ctx.IDENT().get(1).getText().trim() + "\", \"" + ctx.IDENT().get(2).getText().trim() + "\"}");
 
         return null;
     }
