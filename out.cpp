@@ -63,7 +63,7 @@ class Pokemon{
         pp -= skills[skillName].cost;
 
         if(pp < 0){
-            cout << "Impossivel utilizar " + skillName + " faltam " << pp * -1 << " Power Points"<< endl;
+            cout << "Impossivel utilizar " + skillName + " faltam " << pp * -1 << " Power Points"<< endl << endl;
             pp += skills[skillName].cost;
             return false;
         }
