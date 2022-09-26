@@ -1,0 +1,151 @@
+1	Bulbizarre	Bulbizarre	Bulbasaur	PLANTE / POISON
+2	Herbizarre	Herbizarre	Ivysaur	PLANTE / POISON
+3	Florizarre	Florizarre	Venusaur	PLANTE / POISON
+4	Salamèche	Salamèche	Charmander	FEU
+5	Reptincel	Reptincel	Charmeleon	FEU
+6	Dracaufeu	Dracaufeu	Charizard	FEU / VOL
+7	Carapuce	Carapuce	Squirtle	EAU
+8	Carabaffe	Carabaffe	Wartortle	EAU
+9	Tortank	Tortank	Blastoise	EAU
+10	Chenipan	Chenipan	Caterpie	INSECTE
+11	Chrysacier	Chrysacier	Metapod	INSECTE
+12	Papilusion	Papilusion	Butterfree	INSECTE / VOL
+13	Aspicot	Aspicot	Weedle	INSECTE / POISON
+14	Coconfort	Coconfort	Kakuna	INSECTE / POISON
+15	Dardargnan	Dardargnan	Beedrill	INSECTE / POISON
+16	Roucool	Roucool	Pidgey	NORMAL / VOL
+17	Roucoups	Roucoups	Pidgeotto	NORMAL / VOL
+18	Roucarnage	Roucarnage	Pidgeot	NORMAL / VOL
+19	Rattata	Rattata	Rattata	NORMAL
+20	Rattatac	Rattatac	Raticate	NORMAL
+21	Piafabec	Piafabec	Spearow	NORMAL / VOL
+22	Rapasdepic	Rapasdepic	Fearow	NORMAL / VOL
+23	Abo	Abo	Ekans	POISON
+24	Arbok	Arbok	Arbok	POISON
+25	Pikachu	Pikachu	Pikachu	ÉLECTRIK
+26	Raichu	Raichu	Raichu	ÉLECTRIK
+27	Sabelette	Sabelette	Sandshrew	SOL
+28	Sablaireau	Sablaireau	Sandslash	SOL
+29	Nidoran♀	Nidoran♀	Nidoranâ	POISON
+30	Nidorina	Nidorina	Nidorina	POISON
+31	Nidoqueen	Nidoqueen	Nidoqueen	POISON / SOL
+32	Nidoran♂	Nidoran♂	Nidoranâ	POISON
+33	Nidorino	Nidorino	Nidorino	POISON
+34	Nidoking	Nidoking	Nidoking	POISON / SOL
+35	Mélofée	Mélofée	Clefairy	FÉE
+36	Mélodelfe	Mélodelfe	Clefable	FÉE
+37	Goupix	Goupix	Vulpix	FEU
+38	Feunard	Feunard	Ninetales	FEU
+39	Rondoudou	Rondoudou	Jigglypuff	NORMAL / FÉE
+40	Grodoudou	Grodoudou	Wigglytuff	NORMAL / FÉE
+41	Nosferapti	Nosferapti	Zubat	POISON / VOL
+42	Nosferalto	Nosferalto	Golbat	POISON / VOL
+43	Mystherbe	Mystherbe	Oddish	PLANTE / POISON
+44	Ortide	Ortide	Gloom	PLANTE / POISON
+45	Rafflesia	Rafflesia	Vileplume	PLANTE / POISON
+46	Paras	Paras	Paras	INSECTE / PLANTE
+47	Parasect	Parasect	Parasect	INSECTE / PLANTE
+48	Mimitoss	Mimitoss	Venonat	INSECTE / POISON
+49	Aéromite	Aéromite	Venomoth	INSECTE / POISON
+50	Taupiqueur	Taupiqueur	Diglett	SOL
+51	Triopikeur	Triopikeur	Dugtrio	SOL
+52	Miaouss	Miaouss	Meowth	NORMAL
+53	Persian	Persian	Persian	NORMAL
+54	Psykokwak	Psykokwak	Psyduck	EAU
+55	Akwakwak	Akwakwak	Golduck	EAU
+56	Férosinge	Férosinge	Mankey	COMBAT
+57	Colossinge	Colossinge	Primeape	COMBAT
+58	Caninos	Caninos	Growlithe	FEU
+59	Arcanin	Arcanin	Arcanine	FEU
+60	Ptitard	Ptitard	Poliwag	EAU
+61	Têtarte	Têtarte	Poliwhirl	EAU
+62	Tartard	Tartard	Poliwrath	EAU / COMBAT
+63	Abra	Abra	Abra	PSY
+64	Kadabra	Kadabra	Kadabra	PSY
+65	Alakazam	Alakazam	Alakazam	PSY
+66	Machoc	Machoc	Machop	COMBAT
+67	Machopeur	Machopeur	Machoke	COMBAT
+68	Mackogneur	Mackogneur	Machamp	COMBAT
+69	Chétiflor	Chétiflor	Bellsprout	PLANTE / POISON
+70	Boustiflor	Boustiflor	Weepinbell	PLANTE / POISON
+71	Empiflor	Empiflor	Victreebel	PLANTE / POISON
+72	Tentacool	Tentacool	Tentacool	EAU / POISON
+73	Tentacruel	Tentacruel	Tentacruel	EAU / POISON
+74	Racaillou	Racaillou	Geodude	ROCHE / SOL
+75	Gravalanch	Gravalanch	Graveler	ROCHE / SOL
+76	Grolem	Grolem	Golem	ROCHE / SOL
+77	Ponyta	Ponyta	Ponyta	FEU
+78	Galopa	Galopa	Rapidash	FEU
+79	Ramoloss	Ramoloss	Slowpoke	EAU / PSY
+80	Flagadoss	Flagadoss	Slowbro	EAU / PSY
+81	Magnéti	Magnéti	Magnemite	ÉLECTRIK / ACIER
+82	Magnéton	Magnéton	Magneton	ÉLECTRIK / ACIER
+83	Canarticho	Canarticho	Farfetch'd	NORMAL / VOL
+84	Doduo	Doduo	Doduo	NORMAL / VOL
+85	Dodrio	Dodrio	Dodrio	NORMAL / VOL
+86	Otaria	Otaria	Seel	EAU
+87	Lamantine	Lamantine	Dewgong	EAU / GLACE
+88	Tadmorv	Tadmorv	Grimer	POISON
+89	Grotadmorv	Grotadmorv	Muk	POISON
+90	Kokiyas	Kokiyas	Shellder	EAU
+91	Crustabri	Crustabri	Cloyster	EAU / GLACE
+92	Fantominus	Fantominus	Gastly	SPECTRE / POISON
+93	Spectrum	Spectrum	Haunter	SPECTRE / POISON
+94	Ectoplasma	Ectoplasma	Gengar	SPECTRE / POISON
+95	Onix	Onix	Onix	ROCHE / SOL
+96	Soporifik	Soporifik	Drowzee	PSY
+97	Hypnomade	Hypnomade	Hypno	PSY
+98	Krabby	Krabby	Krabby	EAU
+99	Krabboss	Krabboss	Kingler	EAU
+100	Voltorbe	Voltorbe	Voltorb	ÉLECTRIK
+101	Électrode	Électrode	Electrode	ÉLECTRIK
+102	Noeunoeuf	Noeunoeuf	Exeggcute	PLANTE / PSY
+103	Noadkoko	Noadkoko	Exeggutor	PLANTE / PSY
+104	Osselait	Osselait	Cubone	SOL
+105	Ossatueur	Ossatueur	Marowak	SOL
+106	Kicklee	Kicklee	Hitmonlee	COMBAT
+107	Tygnon	Tygnon	Hitmonchan	COMBAT
+108	Excelangue	Excelangue	Lickitung	NORMAL
+109	Smogo	Smogo	Koffing	POISON
+110	Smogogo	Smogogo	Weezing	POISON
+111	Rhinocorne	Rhinocorne	Rhyhorn	SOL / ROCHE
+112	Rhinoféros	Rhinoféros	Rhydon	SOL / ROCHE
+113	Leveinard	Leveinard	Chansey	NORMAL
+114	Saquedeneu	Saquedeneu	Tangela	PLANTE
+115	Kangourex	Kangourex	Kangaskhan	NORMAL
+116	Hypotrempe	Hypotrempe	Horsea	EAU
+117	Hypocéan	Hypocéan	Seadra	EAU
+118	Poissirène	Poissirène	Goldeen	EAU
+119	Poissoroy	Poissoroy	Seaking	EAU
+120	Stari	Stari	Staryu	EAU
+121	Staross	Staross	Starmie	EAU / PSY
+122	M. Mime	M. Mime	Mr. Mime	PSY / FÉE
+123	Insécateur	Insécateur	Scyther	INSECTE / VOL
+124	Lippoutou	Lippoutou	Jynx	GLACE / PSY
+125	Élektek	Élektek	Electabuzz	ÉLECTRIK
+126	Magmar	Magmar	Magmar	FEU
+127	Scarabrute	Scarabrute	Pinsir	INSECTE
+128	Tauros	Tauros	Tauros	NORMAL
+129	Magicarpe	Magicarpe	Magikarp	EAU
+130	Léviator	Léviator	Gyarados	EAU / VOL
+131	Lokhlass	Lokhlass	Lapras	EAU / GLACE
+132	Métamorph	Métamorph	Ditto	NORMAL
+133	Évoli	Évoli	Eevee	NORMAL
+134	Aquali	Aquali	Vaporeon	EAU
+135	Voltali	Voltali	Jolteon	ÉLECTRIK
+136	Pyroli	Pyroli	Flareon	FEU
+137	Porygon	Porygon	Porygon	NORMAL
+138	Amonita	Amonita	Omanyte	ROCHE / EAU
+139	Amonistar	Amonistar	Omastar	ROCHE / EAU
+140	Kabuto	Kabuto	Kabuto	ROCHE / EAU
+141	Kabutops	Kabutops	Kabutops	ROCHE / EAU
+142	Ptéra	Ptéra	Aerodactyl	ROCHE / VOL
+143	Ronflex	Ronflex	Snorlax	NORMAL
+144	Artikodin	Artikodin	Articuno	GLACE / VOL
+145	Électhor	Électhor	Zapdos	ÉLECTRIK / VOL
+146	Sulfura	Sulfura	Moltres	FEU / VOL
+147	Minidraco	Minidraco	Dratini	DRAGON
+148	Draco	Draco	Dragonair	DRAGON
+149	Dracolosse	Dracolosse	Dragonite	DRAGON / VOL
+150	Mewtwo	Mewtwo	Mewtwo	PSY
+151	Mew	Mew	Mew	PSY

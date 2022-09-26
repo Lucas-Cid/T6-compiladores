@@ -13,7 +13,7 @@ declare skill:
 fim_declare
 
 declare pokemon:
-    name: pokemon1
+    name: Mew
     HP: 100
     PP: 50 
     type: fire
@@ -21,7 +21,7 @@ declare pokemon:
 fim_declare
 
 declare pokemon:
-    name: pokemon2
+    name: Mewtwo
     HP: 150
     PP: 30 
     type: eletric
@@ -29,7 +29,7 @@ declare pokemon:
 fim_declare
 
 begin_batalha:
-    pokemon2 USES raio ON pokemon1
-    pokemon2 USES raio ON pokemon1
-    pokemon2 USES raio ON pokemon1
+    Mewtwo USES raio ON Mew
+    Mewtwo USES raio ON Mew
+    Mewtwo USES raio ON Mew
 end_batalha

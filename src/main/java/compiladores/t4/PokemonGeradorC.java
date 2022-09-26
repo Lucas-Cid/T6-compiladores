@@ -11,9 +11,11 @@ import compiladores.t4.PokemonParser.ProgramContext;
 
 public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
     StringBuilder out;
+    PokemonAscii pokemonAscii;
        
     public PokemonGeradorC(){
         out = new StringBuilder();
+        pokemonAscii = new PokemonAscii(out);
     } 
 
     @Override
@@ -29,6 +31,8 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         out.append("//ela vai estar implementada ao final da main!\n");
         out.append("//Pq gostamos de você S2\n");
         out.append("void print_pokemon(int n_pokemon);\n");
+        out.append("\n");
+        pokemonAscii.mapPokemonNames();
         out.append("\n");
         out.append("class Skill{\n");
         out.append("    public:\n");
@@ -91,8 +95,11 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
         out.append("        cout << this->name + \" usou \" + skillName + \" em \" + a.name + \" com sucesso \" << endl;\n");
         out.append("        a.hp -= skills[skillName].dmg;\n");
         out.append("        cout << \"Vidas Atuais:\\n\" + this->name + \": \"<< this->hp << \" ------------VS------------ \" + a.name + \": \" << a.hp << endl;\n");
-        out.append("        if(a.hp <= 0)\n");
+        out.append("        if(a.hp <= 0){\n");
         out.append("            cout << \">>>>>>>>>>>> \" + this->name + \" DECLARADO VENCEDOR DA BATALHA CONTRA \" + a.name + \" <<<<<<<<<<<<\"<< endl;\n");
+        out.append("                if(PokemonToAsciiIdx.find(this->name) != PokemonToAsciiIdx.end())\n");
+        out.append("                        print_pokemon(PokemonToAsciiIdx[this->name])\n;");
+        out.append("        }\n");
         out.append("        cout << endl;\n");
         out.append("        return true;\n");
         out.append("    }\n");
@@ -117,11 +124,11 @@ public class PokemonGeradorC extends PokemonBaseVisitor<Void>{
 
         visitBattle(ctx.battle());
         
-
-
-
-
         out.append("}\n");
+ 
+        pokemonAscii.funcPrintPokemon();
+        
+
         return null;
     }
 
